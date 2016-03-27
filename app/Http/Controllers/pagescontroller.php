@@ -2,15 +2,12 @@
 
 use App\Event_Speeches;
 use App\Events;
-use App\Events_Comments;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Slider;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 
 class pagescontroller extends Controller
 {
@@ -20,8 +17,7 @@ class pagescontroller extends Controller
 	{
 
 		$sliders = Slider::all();
-//		return view('pages/home',array('sliders'=>$sliders));
-		return view('pages/hend');
+		return view('pages/home',array('sliders'=>$sliders));
 	}
 
 	public function tagmoatna()
@@ -84,11 +80,8 @@ class pagescontroller extends Controller
 		$pictures = Events::find($id)->pictures;
 		$number_of_vedios = count($vedioes);
 		$number_of_pictures = count($pictures);
-
-		 $comments =Events_Comments::where('event_id','=',$id)->get();
-
 		return view('pages/tagmoatna-event',array('event_data'=>$event_data,'years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'vedioes'=>$vedioes,
-				'number_of_vedios'=>$number_of_vedios,'pictures'=>$pictures,'number_of_pictures'=>$number_of_pictures,'comments'=>$comments));
+				'number_of_vedios'=>$number_of_vedios,'pictures'=>$pictures,'number_of_pictures'=>$number_of_pictures));
 	}
 
 	public function tagmoatnavideos($id)
@@ -158,11 +151,27 @@ class pagescontroller extends Controller
 
 		return view('pages/tagmoatna-pictures',array('pictures'=>$pictures,'event'=>$event,'years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year));
 	}
-	public function tagmoatnadonyana()
+	public function OurWorld()
 	{
-		return view('pages/tagmoatna-donyana');
+		return view('pages/OurWorld');
 	}
 
+	public function OurWorldArticle()
+	{
+		return view('pages/OurWorld-Article');
+	}
+	public function OurWorldvideo()
+	{
+		return view('pages/OurWorld-video');
+	}
+	public function Gallery()
+	{
+		return view('pages/Gallery');
+	}
+	public function Galleryevent()
+	{
+		return view('pages/Gallery-event');
+	}
 
 	public function etkalemy(){
 		return view('pages/etkalemy');
@@ -193,23 +202,6 @@ class pagescontroller extends Controller
 
 
 	}
-
-	public function event_comment(){
-
-		$comment = Input::get('comment');
-		$event_comment = new Events_Comments;
-		 $event_comment->text=$comment;
-		$event_comment->event_id=Input::get('event_id');
-		 $event_comment->user_id=Auth::user()->id;
-
-		$event_comment->user_name=Auth::user()->english_name;
-		$event_comment->user_image=Auth::user()->profile_image;
-		$event_comment->save();
-
-
-	}
-
-
 
 	public function showadmin()
 	{

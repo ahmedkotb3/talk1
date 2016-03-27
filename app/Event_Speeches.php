@@ -26,12 +26,11 @@ class Event_Speeches extends Model {
 
     /* add vedios to specified event */
 
-    public static function add_event_vedios($event_id,$title,$desc,$youtube_url,$image){
+    public static function add_event_vedios($event_id,$title,$desc,$youtube_url){
 
         $event_speeches = new Event_Speeches;
         $event_speeches->event_id=$event_id;
         $event_speeches->title=$title;
-        $event_speeches->image=$image;
         $event_speeches->desc=$desc;
         $event_speeches->youtube_url=$youtube_url;
         $event_speeches->save();

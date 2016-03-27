@@ -2,7 +2,7 @@
 @section("content")
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12" style="height:75vh">
                 <form class="form-horizontal" role="form" method="post" action="/article" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">

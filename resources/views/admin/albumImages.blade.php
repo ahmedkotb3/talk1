@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well" style="height:75vh">
                 @foreach($images as $image)
 
                     <div class="col-lg-3 col-md-4 col-xs-6 img-thumbnail pull-right">

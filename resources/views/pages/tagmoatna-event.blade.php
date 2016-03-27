@@ -234,20 +234,22 @@
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
-                                <div class="modal-content" style="margin-top: 150px;">
+                                <div class="modal-content" style="  padding:15px;background-color:#D5E4E8;margin-top: 150px;">
+                                    <div style="background-color: white">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4  style="font-family: ebold;font-size: 20px; text-align: center;" class="modal-title">اختر طريقة للدفع</h4>
                                     </div>
                                     <div class="modal-body" style="height: 110px;">
                                         <form>
-                                            <img  class="img-responsive pull-right"style="border-left: 1px solid" src="/images/pictures/donyana/paypal.png">
-                                            <img  class="img-responsive pull-left" src="/images/pictures/donyana/even.png">
+                                            <img  class="  col-xs-6 col-lg-6 img-responsive pull-right"style="border-left: 1px solid" src="/images/pictures/donyana/paypal.png">
+                                            <img  class=" col-xs-6  col-lg-6 img-responsive pull-left" src="/images/pictures/donyana/even.png">
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
+                                        </div>
                                 </div>
 
                             </div>
@@ -317,62 +319,7 @@
                 <hr class="col-xs-5 col-sm-7 col-md-8 col-lg-9" id="hrte">
             </div>
 
-            <div id="container" class="container-fluid" style="height:780px;background-color: white; padding: 10px;">
-                @foreach($comments as $comment)
-                    <div style="background-color:#EEF4F5; padding:20px;height:200px; margin:25px;">
-                        <div class="row ">
-                            <div class="col-lg-1 " style="padding-right: 85px;">
-                                @if(empty($comment->user_image))
-                                    <img src="/uploadfiles/user_photo/e.png" width="60px">
-                                @else
-                                    <img src=/uploadfiles/user_photo/{{$comment->user_name}}/{{$comment->user_image}}"
-                                         width="60px">
-                                @endif
-                            </div>
 
-                            <div class="col-lg-10">
-                                <p style="font-family:Calibri;font-size: 23px; margin: 0;"
-                                   class=""> {{$comment->user_name}}</p>
-                                {{--<p style="font-family:Calibri;font-size: 16px;"> 20 mintues</p>--}}
-                            </div>
-                        </div>
-                        <div class="row pull-right " style="font-family: ebold; font-size:18px; ">
-                            {{$comment->text}}
-                        </div>
-                        <div class="row" style="margin-top: 15px!important;">
-                            <hr/>
-                            <div class="pull-right" style="font-family: ebold;font-size: 18px;color: #8A9596;">
-                                <button>
-                                    إضافة رد
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                <div style="background-color:#EEF4F5; padding:20px;height:200px; margin:25px;" class="ajax_comment">
-                    <div class="row cont">
-                        <div class="col-lg-1 user_pic" style="padding-right: 85px;">
-
-                        </div>
-
-                        <div class="col-lg-10">
-                            <p style="font-family:Calibri;font-size: 23px; margin: 0;" class="user_name"></p>
-                            {{--<p style="font-family:Calibri;font-size: 16px;"> 20 mintues</p>--}}
-                        </div>
-                    </div>
-                    <div class="row pull-right commentbox" style="font-family: ebold; font-size:18px; ">
-
-                    </div>
-                    <div class="row" style="margin-top: 15px!important;">
-                        <hr/>
-                        <div class="pull-right" style="font-family: ebold;font-size: 18px;color: #8A9596;">
-                            <button>
-                                إضافة رد
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             {{--<div id="container" class="container-fluid commentbox" style="height:780px;background-color: white; padding: 10px;"></div>--}}
