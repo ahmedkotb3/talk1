@@ -800,9 +800,7 @@ background-color: #C4E9F2; font-family: ebold; font-size: 15px; width: 171px; di
 }
 
 
-.active{
-    background-color: blue;
-}
+
 @media (min-width: 1200px) {
 #captionevent1 {
     text-align: right;
