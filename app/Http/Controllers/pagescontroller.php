@@ -158,9 +158,28 @@ class pagescontroller extends Controller
 
 		return view('pages/tagmoatna-pictures',array('pictures'=>$pictures,'event'=>$event,'years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year));
 	}
-	public function tagmoatnadonyana()
+
+
+	public function OurWorld()
 	{
-		return view('pages/tagmoatna-donyana');
+		return view('pages/OurWorld');
+	}
+
+	public function OurWorldArticle()
+	{
+		return view('pages/OurWorld-Article');
+	}
+	public function OurWorldvideo()
+	{
+		return view('pages/OurWorld-video');
+	}
+	public function Gallery()
+	{
+		return view('pages/Gallery');
+	}
+	public function Galleryevent()
+	{
+		return view('pages/Gallery-event');
 	}
 
 

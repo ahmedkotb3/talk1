@@ -46,9 +46,13 @@ Route::get('/get_event_comment/{id}','pagescontroller@get_event_comment');
 
 Route::get('/joinus','pagescontroller@joinus');
 
+Route::get('/OurWorld','pagescontroller@OurWorld');
+Route::get('/OurWorld-Article','pagescontroller@OurWorldArticle');
+Route::get('/OurWorld-video','pagescontroller@OurWorldvideo');
+Route::get('/Gallery','pagescontroller@Gallery');
+Route::get('/Gallery-event','pagescontroller@Galleryevent');
 
 
-Route::get('/tagmoatna-donyana','pagescontroller@tagmoatnadonyana');
 Route::get('/AdminControl','pagescontroller@showadmin');
 Route::get('/etkalemy','pagescontroller@etkalemy');
 Route::get('/contactus','pagescontroller@contactus');

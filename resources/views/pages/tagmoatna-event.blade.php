@@ -234,20 +234,22 @@
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
-                                <div class="modal-content" style="margin-top: 150px;">
+                                <div class="modal-content" style="  padding:15px;background-color:#D5E4E8;margin-top: 150px;">
+                                    <div style="background-color: white">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4  style="font-family: ebold;font-size: 20px; text-align: center;" class="modal-title">اختر طريقة للدفع</h4>
                                     </div>
                                     <div class="modal-body" style="height: 110px;">
                                         <form>
-                                            <img  class="img-responsive pull-right"style="border-left: 1px solid" src="/images/pictures/donyana/paypal.png">
-                                            <img  class="img-responsive pull-left" src="/images/pictures/donyana/even.png">
+                                            <img  class="  col-xs-6 col-lg-6 img-responsive pull-right"style="border-left: 1px solid" src="/images/pictures/donyana/paypal.png">
+                                            <img  class=" col-xs-6  col-lg-6 img-responsive pull-left" src="/images/pictures/donyana/even.png">
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
+                                        </div>
                                 </div>
 
                             </div>
