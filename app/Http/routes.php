@@ -17,6 +17,7 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);*/
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -35,6 +36,10 @@ Route::get('/tagmoatna-videos/{id}','pagescontroller@tagmoatnavideos');
 
 Route::get('/tagmoatna-videoplay/{id}','pagescontroller@tagmoatnavideoplay');
 
+Route::post('/event_comment','pagescontroller@event_comment');
+
+Route::get('/get_event_comment/{id}','pagescontroller@get_event_comment');
+
 
 
 
@@ -43,11 +48,7 @@ Route::get('/joinus','pagescontroller@joinus');
 
 
 
-Route::get('/OurWorld','pagescontroller@OurWorld');
-Route::get('/OurWorld-Article','pagescontroller@OurWorldArticle');
-Route::get('/OurWorld-video','pagescontroller@OurWorldvideo');
-Route::get('/Gallery','pagescontroller@Gallery');
-Route::get('/Gallery-event','pagescontroller@Galleryevent');
+Route::get('/tagmoatna-donyana','pagescontroller@tagmoatnadonyana');
 Route::get('/AdminControl','pagescontroller@showadmin');
 Route::get('/etkalemy','pagescontroller@etkalemy');
 Route::get('/contactus','pagescontroller@contactus');
@@ -138,6 +139,10 @@ Route::get('/lang/{id}','LanguageController@getlang');
 
 
 
+Route::post('/pay','PaypalController@pay');
+//Route::get('/payment/status','PaypalController@getPaymentStatus');
 
-
-
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'PaypalController@getPaymentStatus',
+));

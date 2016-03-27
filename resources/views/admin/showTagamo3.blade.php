@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well" style="height:75vh">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well">
                 @foreach($events as $event)
 
                     <div class="col-xs-12 img-thumbnail">
@@ -116,6 +116,9 @@
 
                                             <label class="control-label col-xs-3 pull-right">لينك الفيديو : </label>
                                             <input type="text" name="vedio" class="form-control image_input"  style="margin-right: 37px;" placeholder="">
+
+                                            <label class="control-label col-xs-3 pull-right">اسم الصوره </label>
+                                            <input type="text" name="image" class="form-control image_input"  style="margin-right: 37px;" placeholder="">
 
                                             <label class="control-label col-xs-3 pull-right">الموضوع  : </label>
                                             <textarea rows="2" style="width:85%;resize:vertical" name="description" class="col-xs-8 col-xs-offset-1"></textarea>

@@ -199,10 +199,11 @@ class EventController extends Controller {
 	public function add_vedios($event_id){
 
 		$title = Input::get('title');
+		$image = Input::get('image');
 		$desc = Input::get('description');
 		$youtube_url=Input::get('vedio');
 
-		Event_Speeches::add_event_vedios($event_id,$title,$desc,$youtube_url);
+		Event_Speeches::add_event_vedios($event_id,$title,$desc,$youtube_url,$image);
 		return redirect('show_images_and_vedios/'.$event_id);
 
 	}

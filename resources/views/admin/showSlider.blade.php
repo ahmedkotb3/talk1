@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well" style="height:75vh">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 well">
                 @foreach($sliders as $slider)
 
                     <div class="col-lg-4 col-md-6 col-xs-12 img-thumbnail pull-right">

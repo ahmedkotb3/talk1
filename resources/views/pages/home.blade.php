@@ -42,7 +42,7 @@
                             @foreach($sliders as $key=>$slider)
                                 @if($key==0)
                                     <div class="item active">
-                                        <img src="/uploadfiles/slider/{{$slider->image}}"  alt="...">
+                                       <a href="/tagmoatna"> <img src="/uploadfiles/slider/{{$slider->image}}"  alt="..."></a>
 
                                         <div class="carousel-caption">
                                             {{$slider->description}}
@@ -50,7 +50,7 @@
                                     </div>
                                 @else
                                     <div class="item">
-                                        <img src="/uploadfiles/slider/{{$slider->image}}"  alt="...">
+                                        <a href="/tagmoatna"><img src="/uploadfiles/slider/{{$slider->image}}"  alt="..."></a>
 
                                         <div class="carousel-caption">
                                             {{$slider->description}}

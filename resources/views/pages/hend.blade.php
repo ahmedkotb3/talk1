@@ -1,53 +1,67 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-body{
-    margin-top: 100px;
-    margin-left: 100px;
-}
-    /* ADD this class ("addtriangle") to the block where you want to add a triangle arrow */
-    .addtriangle:after {
-        content: "";
-        position: absolute;
-        left: 5%;
-        bottom: 100%;
-        border-bottom: 11px solid #D5E4E8; /* default color */
-        border-right: 10px solid transparent;
-        border-left: 6px solid transparent;
-        height: 0;
-        width: 0;
-    }
-    .content {
-        position: relative;
-        width: 80%;
-        margin: 0 auto;
-        background-color: #ffffff;
-        background-color: rgba(255,255,255,0.1);
-        padding: 40px 40px 20px 40px;
-    }
-
-
-</style>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-    <div class="content addtriangle row">
-        <div class="col-lg-12">
-            <p>Hend sabry</p>
-            <p>hendsabry@gmail.com</p>
+<div class="container">
+
+    <form role="form">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="email" class="form-control" id="email">
+            <input type="password" class="form-control" id="pwd">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id="submit" data-target="#myModal">submit</button>
+    </form>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form  method="post" action="/pay" enctype="multipart/form-data" class="form_style">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="email2" id="email2" >
+                        <input type="hidden" name="event_name" id="event_name" value="talk" >
+                        <input type="hidden" name="price" id="price" value="1000" >
+                        <button type="submit" class="btn btn-default center-block" >paypal</button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="row">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var email;
+            $("#email").change(function(){
+                email = $("#email").val();
+               $('#email2').val(email);
 
-        <div class="col-lg-6">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-        <div class="col-lg-6">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
+            });
 
-    </div>
-</section>
+
+
+
+        });
+    </script>
+
+</div>
 
 </body>
 </html>

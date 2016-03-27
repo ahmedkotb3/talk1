@@ -91,5 +91,4 @@
         <!-- End the slider of Last event -->
     </div>
 
-
 @stop
