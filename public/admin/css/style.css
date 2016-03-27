@@ -1,0 +1,67 @@
+body{
+    direction: rtl;
+}
+@media (min-width: 768px){
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+}
+.image_delete{
+
+    font-size:30px;
+    text-align: center ;
+    cursor: pointer ;
+    color: #F0AD4E;
+}
+.image_edit{
+    font-size:30px;
+    text-align: center ;
+    cursor: pointer;
+    color: green;
+}
+.add_icon{
+    margin: 3px 5px;
+    color:#337ab7;
+    cursor: pointer;
+    font-size: 25px;
+}
+.image_input{
+    margin-left: 46px;
+    width: 85%;
+}
+.label_style{
+    float:right;
+}
+.donyana{
+    margin: 10px;
+    background-color: #B0D2D9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.donyana a{
+    color:#fff;
+}
+.navbar-default {
+    background-color:#376773;
+    border-color: transparent;
+}
+.btn-default {
+    color: #ffffff;
+    background-color: #B0D2D9;
+    border-color: #B0D2D9;
+}
+.logo{
+    width: 100%;
+    margin-top: -14px;
+    float: left;
+}
+.footer{
+    background: #376773;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    padding-top: 17px;
+}
+
