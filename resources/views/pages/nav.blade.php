@@ -107,10 +107,10 @@
 
         <li><a href="/"> الرئيسية </a></li>
         <li><a href="/tagmoatna"> تجمعاتنا </a></li>
-        <li><a href="#"> دنيانا </a></li>
-        <li><a href="#"> انضمي لنا </a></li>
+        <li><a href="/OurWorld"> دنيانا </a></li>
+        <li><a href="/joinus"> انضمي لنا </a></li>
         <li><a href="/etkalemy"> إتكلمى </a></li>
-        <li><a href="#"> جاليري </a></li>
+        <li><a href="/Gallery"> جاليري </a></li>
         <li><a href="/contactus"> للاتصال بنا </a></li>
         <li><a href="/aboutus"> عن إتكلمى </a></li>
         <div style=" padding-top: 5px; background-color: white;">
@@ -164,10 +164,10 @@
             style="text-align:center; width:100%; margin-right:15px!important;font-family: ebold!important; font-size: 18px; ">
             <li><a href="/aboutus"> عن إتكلمى </a></li>
             <li><a href="/contactus"> للاتصال بنا </a></li>
-            <li><a href="#"> جاليري </a></li>
+            <li><a href="/Gallery"> جاليري </a></li>
             <li><a href="/etkalemy"> إتكلمى </a></li>
             <li><a href="/joinus"> انضمي لنا </a></li>
-            <li><a href="#"> دنيانا </a></li>
+            <li><a href="/OurWorld"> دنيانا </a></li>
             <li><a href="/tagmoatna"> تجمعاتنا </a></li>
             <li><a href="/"> الرئيسية </a></li>
         </ul>
