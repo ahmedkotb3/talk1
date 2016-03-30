@@ -10,7 +10,7 @@ class YoutubeController extends Controller
     {
         //https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAsaksixbvwTyTdXuYoyooitplftJnDBSs&textFormat=plainText&part=snippet&videoId=0sQ2tPgdE9Y&maxResults=50
 //$comments = array();
-        $comments = file_get_contents('https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAsaksixbvwTyTdXuYoyooitplftJnDBSs&textFormat=plainText&part=snippet&videoId=sLwrG2bwBDI&maxResults=50');
+        $comments = file_get_contents('https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAsaksixbvwTyTdXuYoyooitplftJnDBSs&textFormat=plainText&part=snippet&videoId=0sQ2tPgdE9Y&maxResults=50');
 //   $arr=explode(",",$comments);
         //$keywords = preg_split("/[\s,]+/", $comments);
         //return($keywords[4]);
@@ -21,15 +21,7 @@ class YoutubeController extends Controller
       $comment_number = count($response['items']);
         $comments = array();
         for($i=0;$i<$comment_number;$i++){
-            $text = $response['items'][$i]['snippet']['topLevelComment']['snippet']['textDisplay'];
-            $user_name = $response['items'][$i]['snippet']['topLevelComment']['snippet']['authorDisplayName'];
-            $user_image = $response['items'][$i]['snippet']['topLevelComment']['snippet']['authorProfileImageUrl'];
-           $comment = array(
-                'user_name'=>$user_name,
-                'user_iamge'=>$user_image,
-                'text'=>$text,
-            );
-
+        $comment = $response['items'][$i]['snippet']['topLevelComment']['snippet']['textDisplay'];
             array_push($comments,$comment);
 
         }

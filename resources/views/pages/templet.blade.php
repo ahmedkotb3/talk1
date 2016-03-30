@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/css/radio.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/src/css/jquery.tosrus.all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/twitter-styles-carousel.css"/>
     <!--[if lte IE 8]>
     <p style="font-size: 200px;">Notice: As you are using an old browser some features of this
         web app may not work for you. Please update.</p>
@@ -41,6 +42,8 @@
     @include("pages.footer")
 
 </div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="/js/angular.js"></script>
 <script src="/js/countries.js"></script>
@@ -49,6 +52,8 @@
 <script src="/js/app.js"></script>
 <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
 <script type="text/javascript" src="/src/js/jquery.tosrus.min.all.js"></script>
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/twitterfeed-carousel.js"></script>
 <!--<script>
     $("#links a").tosrus({
         buttons    : "inline",

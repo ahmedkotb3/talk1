@@ -12,7 +12,7 @@
             <div style="color: #376773;font-size: 30px!important;font-family: ebold;">
                 <div class="col-lg-12 img-thumbnail" style="background-image: url('/images/pictures/donyana/backgroundpoint.png');
                 background-repeat: no-repeat; background-position: 50% 50%;">
-                    <img   style="padding-top: 20px; padding-bottom: 15px;" class="pull-right" src="/images/pictures/donyana/upperpoints.png"/>
+                    <p><img   style="padding-left:110px;padding-top: 20px; padding-bottom: 15px;" class="pull-right" src="/images/pictures/donyana/upperpoints.png"/></p>
                     <div class="col-lg-12" style="font-size: 15pt!important;direction: rtl">
                         <p>
                             مؤسسة تهدف الي دعم المرأة الناجحة حتي يصل صوتها الي المجتمع المـــــحلي ، العربي وعلي مستوي العالم .

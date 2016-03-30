@@ -502,7 +502,10 @@ hr{
 #fl{
     padding: 30px 10px 50px 10px!important;}
 }
-
+@media screen and (max-width: 767px){
+    #fl{ padding: 30px 10px 50px 10px!important;
+         float: right}
+}
 label{
     font-weight: normal;
 }

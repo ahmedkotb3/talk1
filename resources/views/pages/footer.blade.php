@@ -1,51 +1,29 @@
 <div class="row" id="last">
     <footer>
-        <div class="hidden-xs col-sm-6 col-md-6 col-lg-6"  id="fl"style=" padding-left:0;max-width: 495px;">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"  id="fl"style=" padding-left:0;max-width: 495px;">
 
             <div style=" text-align:right; font-size:30px; color: white;">
                                     أحدث التغريدات
                 <img src="/images/pictures/fo.png"/>
                 <hr style=" height:2px; margin-right:0px;color: white; pull:right; "/>
             </div>
-            <div style=" font-family: elight; font-size:17px; color: white;">
-                Inas: # join_us Follow us and wait for the Inas: # join_us Follow us and
-                    big event منذ 4 ايام
-                    Inas: # join_us Follow us and wait for the Inas: # join_us Follow us and
-
-            </div>
+            <div id="twitter-feed"></div>
             <button  type="button" class="btn btn-info" style=" background-color:#60CAEF; font-family:cent; height: 40px; font-size:20px; width: 210px;
     margin-top: 13px; border:none; border-radius:3px;"> Follow us on <i class="fa fa-twitter fa-lg"></i>
             </button>
         </div>
-        <div class="col-xs-12 hidden-sm  hidden-md hidden-lg pull-right" style="max-width: 495px; padding:30px 10px ">
 
-            <div style=" text-align:right; font-size:28px; color: white;">
-                         أحدث التغريدات
-                <img src="/images/pictures/fo.png"/>
-                <hr style=" height:2px; margin-right:0px;color: white; pull:right; "/>
-            </div>
-            <div style=" font-family: elight; font-size:15px; color: white;">
-                Inas: # join_us Follow us and wait for the Inas: # join_us Follow us and
-                    big event منذ 4 ايام
-                    Inas: # join_us Follow us and wait for the Inas: # join_us Follow us and
-                    big event منذ 5 ايام
-                
-            </div>
-            <button  type="button" class="btn btn-info" style=" background-color:#60CAEF; font-family:cent; height: 40px; font-size:20px; width: 210px;
-    margin-top: 13px; border:none; border-radius:3px;"> Follow us on <i class="fa fa-twitter fa-lg"></i>
-            </button>
-        </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right"  id="fr" style=" max-width:495px;">
             <div style=" text-align:right; font-size:28px; color: white;">
                                    ليصلك كل جديد
                 <img src="/images/pictures/fo.png"/>
                 <hr style=" margin-right:0px;color: white; pull:right;"/>
             </div>
-            <div style=" font-family: elight; text-align:right; font-size:18px; color: white;">
+            <div style="height: 238px; font-family: elight; text-align:right; font-size:18px; color: white;">
                 كى يصلك كل جديد و لمعرفة أهم اخبارنا و تجمعاتنا القادمة
-                    <br/>
+
                     ادخل ايميلك الان و أنتظر
-                    <br/>
+
                     .... مناالمزيد
             </div>
 

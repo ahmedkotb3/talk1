@@ -1,5 +1,22 @@
 @extends('pages.templet')
 @section('content')
+    <style>
+        @media(max-width: 767px){
+            #engtxt{
+                 font-size: 12px!important;
+            }
+            #arabictxt{
+                 font-size: 12px!important;
+            }
+        }
+        #engtxt{
+            color: #376773; font-family:Calibri; font-weight: bold; font-size: 18px; text-align: right;
+        }
+        #arabictxt{
+            color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;
+        }
+    </style>
+
     <div class="container-fluid" id="row1170">
         <div  class="top" style="margin-bottom:34px;margin-top: 10px;">
             <img src="/images/pictures/m1.jpg" class="imgstyle">
@@ -24,42 +41,42 @@
 
                     <form role="form" style="margin-top: 30px; margin-bottom: 150px;">
                         <div class="form-group row" style="margin-bottom: 12px !important;">
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:Calibri; font-weight: bold; font-size: 18px; text-align: right;"> Name</label>
+                            <label class="control-label col-xs-3" for="namee" id="engtxt"> Name</label>
                             <div class="col-xs-6">
                                 <input type="text" class="form-control" id="namee" style="background-color: #D5E4E8;">
                             </div>
-                            <label class="control-label col-xs-3 pull-right" for="namee" style=" color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;"> الاسم</label>
-                        </div>
+                            <label class="control-label col-xs-3 pull-right" for="namee" id="arabictxt"> الاسم</label>
+                </div>
 
                         <div class="form-group row" style="margin-bottom: 20px !important;">
-                            <label class="control-label col-xs-3" for="email" style=" color: #376773; font-family:Calibri; font-weight: bold; font-size: 18px; text-align: right;"> E-mail </label>
+                            <label class="control-label col-xs-3" for="email" id="engtxt"> E-mail </label>
                             <div class="col-xs-6" style=" height: 23px">
                                 <input type="email" class="form-control" id="email" style="background-color: #D5E4E8;">
                             </div>
-                            <label class="control-label col-xs-3" for="email" style=" color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;">البريد الالكتروني  </label>
+                            <label class="control-label col-xs-3" for="email" id="arabictxt">البريد الالكتروني  </label>
                         </div>
 
                         <div class="form-group row" style="margin-bottom: 20px !important;">
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:Calibri; font-weight: bold; font-size: 18px; text-align: right;"> Subject</label>
+                            <label class="control-label col-xs-3" for="namee" id="engtxt"> Subject</label>
                             <div class="col-xs-6" style=" height: 23px">
                                 <input type="text" class="form-control" id="namee" style="background-color: #D5E4E8;">
                             </div>
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;"> عنوان الموضوع </label>
+                            <label class="control-label col-xs-3" for="namee" id="arabictxt"> عنوان الموضوع </label>
                         </div>
 
                         <div class="form-group row">
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:Calibri; font-weight: bold; font-size: 18px; text-align: right;"> contribution</label>
+                            <label class="control-label col-xs-3" for="namee" id="engtxt"> contribution</label>
                             <div class="col-xs-6">
                                 <textarea name="" style="width: 100%;background: #D5E4E8;resize: vertical;border-radius: 5px;font-family: ebold;font-size: 18px;height: 150px;"></textarea>
                             </div>
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;"> الموضوع</label>
+                            <label class="control-label col-xs-3" for="namee" id="arabictxt"> الموضوع</label>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-xs-offset-3 col-xs-6">
                                 <input type="file" class="form-control" id="namee" style="background-color: #D5E4E8;">
                             </div>
-                            <label class="control-label col-xs-3" for="namee" style=" color: #376773; font-family:ebold; font-weight: bold; font-size: 18px; text-align: left;"> ملف</label>
+                            <label class="control-label col-xs-3" for="namee" id="arabictxt" > ملف</label>
                         </div>
                         <div class="form-group">
                             <div class=" col-xs-offset-3 col-xs-9">

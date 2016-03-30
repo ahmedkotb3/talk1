@@ -56,41 +56,28 @@
                         <li class="page-scroll">
                             <a href="/auth/logout">تسجيل الخروج</a>
                         </li>
-
-
-                        <li class="dropdown">
-
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> تجمعاتنا </a>
-                            <ul class="dropdown-menu">
-                                <li class="page-scroll" data-name="/event/create"><a href="/event/create">اضافة التجمع</a></li>
-                                <li class="page-scroll" data-name="/event"><a href="/event">تعديل التجمع</a></li>
-                            </ul>
+                        <li class="page-scroll">
+                            <a href="/event/create">اضافة التجمع</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> دنيانا </a>
-                            <ul class="dropdown-menu">
-                                <li class="page-scroll" data-name="/article/create"><a href="/article/create">اضافة مقال</a></li>
-                                <li class="page-scroll" data-name="/showArticles"><a href="/showArticles">تعديل المقال</a></li>
-                                <li class="page-scroll" data-name="/create_vedi"><a href="/create_vedio">اضافة فيديو</a></li>
-                                <li class="page-scroll" data-name="/showVedios"> <a href="/showVedios">تعديل الفيديو</a></li>
-                            </ul>
+                        <li class="page-scroll">
+                            <a href="/event">تعديل التجمع</a>
                         </li>
 
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">جاليري</a>
-                            <ul class="dropdown-menu">
-                                <li class="page-scroll" data-name="/gallery"><a href="/gallery">تعديل الالبوم</a></li>
-                                <li class="page-scroll" data-name="/gallery/create"><a href="/gallery/create">اضافة الالبوم</a></li>
-                            </ul>
+                        <li class="page-scroll">
+                            <a href="/doniana">دنيانا</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">الرئيسيه</a>
-                            <ul class="dropdown-menu">
-                                <li data-name="/slider"><a href="/slider">تعديل السليدر</a></li>
-                                <li class="page-scroll" data-name="/slider/create"><a href="/slider/create">اضافه السليدر</a></li>
-                            </ul>
+                        <li class="page-scroll">
+                            <a href="/gallery">تعديل الالبوم</a>
                         </li>
-
+                        <li class="page-scroll">
+                            <a href="/gallery/create">اضافة الالبوم</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/slider">تعديل السليدر</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/slider/create">اضافه السليدر</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -110,15 +97,6 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/admin/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function(){
-        var loc = window.location.pathname;
-        var ele = $("li[data-name='"+ loc +"']");
-        ele.addClass("active");
-        ele.parents("li").find("a").css({"color": "#78C8AB"});
-    });
-</script>
-
 
 </body>
 

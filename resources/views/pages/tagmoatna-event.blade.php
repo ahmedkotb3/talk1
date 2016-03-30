@@ -2,23 +2,29 @@
 @section('content')
     <div class="row" id="rtagmoevent">
         @foreach($event_data as $data)
+                <!-- Start the Event Name -->
+        <div class=" col-xs-6 col-sm-8 col-md-9 col-lg-10 top pull-right" id="tagmo">
+            <img src="/images/pictures/m1.jpg" class="imgstyle">
+            <span id="ta">  تجمعاتنا >   </span>
 
-         <!-- Start the Event Name -->
-            <div class=" col-xs-6 col-sm-8 col-md-9 col-lg-10 top pull-right" id="tagmo">
-                <img src="/images/pictures/m1.jpg" class="imgstyle">
-                <span id="ta">  تجمعاتنا >   </span>
-                <span id="ta">{{$data->name}}</span>
-            </div>
+            <span id="ta">{{$data->name}}</span>
+        </div>
+
         <!-- End the Event Name -->
 
         <!-- Start the dropdown date of events -->
+
         <div class=" col-xs-6  col-sm-4 col-md-3  col-lg-2 pull-left" id="dtyr">
             <div class="row dropdown">
-                <a id="dLabel" role="button" data-toggle="dropdown" class="btn drop" data-target="#" href="#" style="outline: 0!important;">
+                <a id="dLabel" role="button" data-toggle="dropdown" class="btn drop" data-target="#" href="#"
+                   style="outline: 0!important;">
                     <span id='tarek'> تاريخ التجمع</span>
+
                     <button class="btn btn-success" id="btncaret"><span class="caret"></span></button>
                 </a>
+
                 <ul class="dropdown-menu multi-level" id="dxs" role="menu" aria-labelledby="dropdownMenu">
+
                     @foreach($years as $year)
                         <li class="dropdown-submenu">
                             <a tabindex="-1" href="#">{{$year}}</a>
@@ -26,7 +32,7 @@
                                 @foreach($eventnames_and_year as $eventname_and_year)
                                     @if($eventname_and_year['year'] == $year)
                                         <li><a tabindex="-1" id="lis"
-                                               href="/Events/<?php echo implode("",explode("-",date('Y-m-d', strtotime($eventname_and_year['date'])))); ?>">{{$eventname_and_year['name']}}</a>
+                                               href="/tagmoatna-event/{{$eventname_and_year['id']}}">{{$eventname_and_year['name']}}</a>
                                         </li>
                                         <li class="divider" style="width: 100%"></li>
                                     @endif
@@ -45,6 +51,7 @@
             <div class="row" id="picslider">
                 <img class="img-responsive" style="height: 395px;width: 100%;"
                      src="/uploadfiles/events/{{$data->name}}/{{$data->image}}"/>
+
                 <div>
                     <div id="captionevent1"> {{$data->name}}</div>
                     <div id="captionevent2">
@@ -83,9 +90,12 @@
                 <div class="col-xs-7 col-sm-5 col-md-4 col-lg-3" id="tgm"> عن الإيفينت</div>
                 <hr class="col-xs-5 col-sm-7 col-md-8 col-lg-9" id="hrt">
             </div>
-            <div class="row" style=" direction: rtl;  padding:25px; background-color:white; margin-bottom: 20px!important;">
+            <div class="row"
+                 style=" direction: rtl;  padding:25px; background-color:white; margin-bottom: 20px!important;">
                 <div id="txtaboutevent">{{$data->description}}</div>
-                <div class="row"><hr/></div>
+                <div class="row">
+                    <hr/>
+                </div>
                 <div class="row">
                     <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right" id="socialmedia">
                         <a href="{{$data->facebook_link}}"><img src="/images/pictures/tagmoevent/facebook.png"
@@ -135,8 +145,7 @@
                                     <img class="imgWrape img-responsivee"
                                          src="http://img.youtube.com/vi/{{$vedio_name}}/{{$vedio->image}} "
                                          alt="polaroid"/>
-                                    <a href="#">
-                                        <p class="imgDescriptione">
+                                    <a href="#"><p class="imgDescriptione">
                                             <span id="txtimge1"> {{$vedio->title}}</span>
                                             {{--<span id="txtimge2"> كيف تصل الى هدفك بالطريقة الصحيحة </span>--}}
                                             <span id="txtimge3"><img src="/images/pictures/tagmoevent/4.png"/> </span>
@@ -150,27 +159,25 @@
                     @foreach($vedioes as $key=>$vedio)
                         @if($key < 3)
                             <div class=" video-thumb  pull-right">
-                                <span class=" yt-thumb-simple">
-                                    <div class="imgWrape img-responsivee">
-                                        <?php $vedio_name = substr($vedio->youtube_url, strrpos($vedio->youtube_url, '/') + 1);?>
-                                        <img class="imgWrape img-responsivee"
-                                             src="http://img.youtube.com/vi/{{$vedio_name}}/{{$vedio->image}} "
-                                             alt="polaroid"/>
-                                        <a href="#">
-                                            <p class="imgDescriptione">
-                                                <span id="txtimge1"> {{$vedio->title}}</span>
-                                                {{--<span id="txtimge2"> كيف تصل الى هدفك بالطريقة الصحيحة </span>--}}
-                                                <span id="txtimge3"><img src="/images/pictures/tagmoevent/4.png"/> </span>
-                                            </p>
-                                        </a>
-                                    </div>
-                                </span>
+                            <span class=" yt-thumb-simple">
+                                <div class="imgWrape img-responsivee">
+                                    <?php $vedio_name = substr($vedio->youtube_url, strrpos($vedio->youtube_url, '/') + 1);?>
+                                    <img class="imgWrape img-responsivee"
+                                         src="http://img.youtube.com/vi/{{$vedio_name}}/{{$vedio->image}} "
+                                         alt="polaroid"/>
+                                    <a href="#"><p class="imgDescriptione">
+                                            <span id="txtimge1"> {{$vedio->title}}</span>
+                                            {{--<span id="txtimge2"> كيف تصل الى هدفك بالطريقة الصحيحة </span>--}}
+                                            <span id="txtimge3"><img src="/images/pictures/tagmoevent/4.png"/> </span>
+                                        </p>
+                                    </a>
+                                </div>
+                            </span>
                             </div>
                         @endif
                     @endforeach
-
-                    <a href="/tagmoatna-videos/{{$data->id}}"> <img src="/images/pictures/tagmoevent/3.png" id="moreimg"/></a>
-
+                    <a href="/tagmoatna-videos/{{$data->id}}"> <img src="/images/pictures/tagmoevent/3.png"
+                                                                    id="moreimg"/></a>
                 @endif
 
             </div>
@@ -189,158 +196,159 @@
             <div class="container-fluid" style="background-color: white; padding: 10px;">
                 @if($number_of_pictures <= 3)
                     @foreach($pictures as $picture)
-                        <img id="imgdiv" class="img-responsive pull-right" src="/uploadfiles/events/{{$data->name}}/{{$picture->pic}}"/>
+                        <img id="imgdiv" class="img-responsive pull-right"
+                             src="/uploadfiles/events/{{$data->name}}/{{$picture->pic}}"/>
                     @endforeach
                 @else
                     @foreach($pictures as $key=>$picture)
                         @if($key < 3)
-                            <img id="imgdiv" class="img-responsive pull-right" src="/uploadfiles/events/{{$data->name}}/{{$picture->pic}}"/>
+                            <img id="imgdiv" class="img-responsive pull-right"
+                                 src="/uploadfiles/events/{{$data->name}}/{{$picture->pic}}"/>
                         @endif
                     @endforeach
 
-                    <a href="/tagmoatna-pictures/{{$data->id}}"> <img src="/images/pictures/tagmoevent/3.png" id="moreimg"/></a>
+                    <a href="/tagmoatna-pictures/{{$data->id}}"> <img src="/images/pictures/tagmoevent/3.png"
+                                                                      id="moreimg"/></a>
                 @endif
             </div>
             <!-- End the pics of event -->
             @endforeach
-
-
             <div class="row" id="ronew">
                 <div class="col-xs-7 col-sm-5 col-md-4 col-lg-3" id="tgm"> لتسجيل الحضور</div>
                 <hr class="col-xs-5 col-sm-7 col-md-8 col-lg-9" id="hrt" style="margin-top:25px!important; ">
             </div>
+
+
             <div class="row">
-            <!-- registration for members-->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pull-right" id="rightdiv">
-            <form  role="form">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <div class="row" style=" background-color: white;text-align: center;padding: 38px 0!important;">
-            <span style=" font-family: ebold; font-size: 35px;">لتسجيل الأعضاء </span>
-            </div>
-            <div class="row" id="rmember">
-            <div class="form-group1 ">
-            <label class="control-label col-sm-3 pull-right" for="email" style=" color: #376773; font-family: ebold; font-size: 23px;  text-align: right;">الإيميل </label>
-            <div class="col-sm-9 pull-left" style=" height: 23px">
-            <input type="email" class="form-control" id="email" style="background-color: #D5E4E8;">
-            </div>
-            </div>
-            <div class="form-group1">
-            <label class="control-label col-sm-3 pull-right" for="password" style=" color: #376773; font-family:ebold;  font-size: 23px;  text-align: right;">الباسورد </label>
-            <div class="col-sm-9 pull-left" style=" height: 23px">
-            <input type="password" class="form-control" id="password" style="background-color: #D5E4E8;">
-            </div>
-            </div>
+                <!-- registration for members-->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pull-right" id="rightdiv">
+                    <form>
+                        <div class="row" style=" background-color: white;text-align: center;padding: 38px 0!important;">
+                            <span style=" font-family: ebold; font-size: 35px;">لتسجيل الأعضاء </span>
+                        </div>
+                        <div class="row" id="rmember">
+                            <div class="form-group1 ">
+                                <label class="control-label col-sm-3 pull-right" for="email"
+                                       style=" color: #376773; font-family: ebold; font-size: 23px;  text-align: right;">الإيميل </label>
 
-            </div>
-            <div class="row" style="padding-bottom: 124px;background-color: white; padding-left:95px;">
-            <button type="button" class="btn btn-info" style=" font-family:Cent; font-size: 22px; height: 40px;
-            background-color:#78c8ab;
-            border-color:#78c8ab; border-radius:3px;" data-toggle="modal" data-target="#myModal" id="submit"> Submit</button>
-            </div>
-            </form>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
+                                <div class="col-sm-9 pull-left" style=" height: 23px">
+                                    <input type="email" class="form-control" id="email"
+                                           style="background-color: #D5E4E8;">
+                                </div>
+                            </div>
+                            <div class="form-group1">
+                                <label class="control-label col-sm-3 pull-right" for="password"
+                                       style=" color: #376773; font-family:ebold;  font-size: 23px;  text-align: right;">الباسورد </label>
 
-            <!-- Modal content-->
-            <div class="modal-content"
-            style="  padding:15px;background-color:#D5E4E8;margin-top: 150px;">
-            <div style="background-color: white">
-            <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 style="font-family: ebold;font-size: 20px; text-align: center;"
-            class="modal-title">اختر طريقة للدفع</h4>
-            </div>
-            <div class="modal-body" style="height: 110px;">
-            <form  method="post" action="/pay" enctype="multipart/form-data" class="form_style">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <input type="hidden" name="email2" id="email2" >
-                <input type="hidden" name="event_name" id="event_name" value="{{$data->name}}" >
-                <input type="hidden" name="price" id="price" value="{{$data->price}}" >
-                <button type="submit" class="col-xs-6 col-lg-6 pull-right"><img class=" img-responsive pull-right"
-                                                                  src="/images/pictures/donyana/paypal.png" /></button>
-                <button type="submit" class="col-xs-6 col-lg-6 pull-left" id="buttoneven"><img class=" img-responsive pull-left"
-                                                                                 src="/images/pictures/donyana/even.png"/></button>
+                                <div class="col-sm-9 pull-left" style=" height: 23px">
+                                    <input type="password" class="form-control" id="password"
+                                           style="background-color: #D5E4E8;">
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="row" style="padding-bottom: 124px;background-color: white; padding-left:95px;">
+                            <button type="button" class="btn btn-info" style=" font-family:Cent; font-size: 22px; height: 40px;
+                                                                          background-color:#78c8ab;
+                        border-color:#78c8ab; border-radius:3px;" data-toggle="modal" data-target="#myModal"> Submit
+                            </button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
 
+                                <!-- Modal content-->
+                                <div class="modal-content"
+                                     style="  padding:15px;background-color:#D5E4E8;margin-top: 150px;">
+                                    <div style="background-color: white">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 style="font-family: ebold;font-size: 20px; text-align: center;"
+                                                class="modal-title">اختر طريقة للدفع</h4>
+                                        </div>
+                                        <div class="modal-body" style="height: 110px;">
+                                            <form>
+                                                <button class="col-xs-6 col-lg-6 pull-right"><img class=" img-responsive pull-right"
+                                                     src="/images/pictures/donyana/paypal.png" /></button>
+                                                <button class="col-xs-6 col-lg-6 pull-left"><img class=" img-responsive pull-left"
+                                                     src="/images/pictures/donyana/even.png"/></button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
 
-
-            {{--<button type="submit" class="btn btn-default center-block" >pay--}}
-            {{--<img class="  col-xs-6 col-lg-6 img-responsive pull-right" style="border-left: 1px solid;display:inline-block" src="/images/pictures/donyana/paypal.png">--}}
-            {{--</button>--}}
-            {{--<button type="submit" class="btn btn-default center-block" >--}}
-            {{--<img class=" col-xs-6  col-lg-6 img-responsive pull-left" src="/images/pictures/donyana/even.png">--}}
-            {{--</button>--}}
-            </form>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-            </div>
-            </div>
-
-            </div>
-            </div>
+                            </div>
+                        </div>
 
 
+                    </form>
+                </div>
+                <!-- registration for non members-->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pull-left" id="leftdiv">
+                    <form>
+                        <div class="row"
+                             style="background-color: white;text-align: center;padding: 38px 0!important;"><span
+                                    style=" font-family: ebold; font-size: 35px;">لغير الأعضاء </span></div>
+                        <div class="row" style=" background-color: white; padding-left:40px;">
+                            <div class="form-group1">
+                                <label class="control-label col-sm-5 pull-right" for="email"
+                                       style=" color: #376773; font-family:ebold; font-size: 23px;  text-align: right;">الأسم </label>
 
-            </div>
-            <!-- registration for non members-->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pull-left" id="leftdiv">
-            <form  role="form">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <div class="row" style="background-color: white;text-align: center;padding: 38px 0!important;"><span style=" font-family: ebold; font-size: 35px;">لغير الأعضاء </span></div>
-            <div class="row" style=" background-color: white; padding-left:40px;">
-            <div class="form-group1">
-            <label class="control-label col-sm-5 pull-right" for="email" style=" color: #376773; font-family:ebold; font-size: 23px;  text-align: right;">الأسم </label>
+                                <div class="col-sm-7 pull-left" style=" height: 23px">
+                                    <input type="text" class="form-control" id="email"
+                                           style="background-color: #D5E4E8;">
+                                </div>
+                            </div>
+                            <div class="form-group1">
+                                <label class="control-label col-sm-5 pull-right" for="password"
+                                       style=" color: #376773; font-family:ebold; font-size: 23px;  text-align: right;">البريد
+                                    الإلكترونى </label>
 
-            <div class="col-sm-7 pull-left" style=" height: 23px">
-            <input type="text" class="form-control" style="background-color: #D5E4E8;">
-            </div>
-            </div>
-            <div class="form-group1">
-            <label class="control-label col-sm-5 pull-right" for="password" style=" color: #376773; font-family:ebold; font-size: 23px;  text-align: right;">البريدالإلكترونى </label>
+                                <div class="col-sm-7 pull-left" style=" height: 23px">
+                                    <input type="email" class="form-control" id="password"
+                                           style="background-color: #D5E4E8;">
+                                </div>
+                            </div>
 
-            <div class="col-sm-7 pull-left" style=" height: 23px">
-            <input type="email" class="form-control" id="password" id="email" style="background-color: #D5E4E8;">
-            </div>
-            </div>
+                        </div>
+                        <div class="row" style=" padding-bottom: 40px;background-color: white; padding-left:55px;">
+                            <div class="hidden-xs hidden-sm hidden-md">
+                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal"
+                                        style=" font-family:Cent; font-size: 22px; height: 40px; background-color:#78c8ab;border-color:#78c8ab; border-radius:3px;">
+                                    Submit
+                                </button>
+                            </div>
+                            <div class="hidden-lg">
+                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal"
+                                        style=" font-family:Cent; font-size: 22px; height: 40px; background-color:#78c8ab;border-color:#78c8ab; border-radius:3px;">
+                                    Submit
+                                </button>
 
-            </div>
-            <div class="row" style=" padding-bottom: 40px;background-color: white; padding-left:55px;">
+                                <div id="light1" class="white_content1">
+                                    <a href="javascript:void(0)"
+                                       onclick="document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a>
 
-                    <button type="button" class="btn btn-info" style=" font-family:Cent; font-size: 22px; height: 40px;
-            background-color:#78c8ab;
-            border-color:#78c8ab; border-radius:3px;" data-toggle="modal" data-target="#myModal" id="submit"> Submit</button>
-
-            {{--<div class="hidden-xs hidden-sm hidden-md">--}}
-            {{--<button class="btn btn-info" data-toggle="modal" data-target="#myModal" id="submit" style=" font-family:Cent; font-size: 22px; height: 40px; background-color:#78c8ab;border-color:#78c8ab; border-radius:3px;">Submit</button>--}}
-            {{--</div>--}}
-            {{--<div class="hidden-lg">--}}
-            {{--<button class="btn btn-info" data-toggle="modal" data-target="#myModal" id="submit" style=" font-family:Cent; font-size: 22px; height: 40px; background-color:#78c8ab;border-color:#78c8ab; border-radius:3px;">Submit</button>--}}
-
-            {{--<div id="light1" class="white_content1">--}}
-            {{--<a href="javascript:void(0)"--}}
-            {{--onclick="document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a>--}}
-
-            {{--<div class="row" style="text-align: center;"><span--}}
-            {{--style="font-family: ebold;font-size: 20px;"> اختر طريقة للدفع </span>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--<div id="fade1" class="black_overlay1"></div>--}}
-            {{--</div>--}}
+                                    <div class="row" style="text-align: center;"><span
+                                                style="font-family: ebold;font-size: 20px;"> اختر طريقة للدفع </span>
+                                    </div>
+                                </div>
+                                <div id="fade1" class="black_overlay1"></div>
+                            </div>
+                        </div>
+                        <div class="row" style=" padding-bottom:40px;background-color: white;">
+                            <div style=" text-align:right; padding-right:20px;font-size: 16px; font-family: ebold;">
+                                ملحوظة :
+                                يرجى العلم ان السابق هو تسجيل لحضور الايفنت أما اذا كنت تريد الحصول على عضوية مستديمة
+                                بالموقع و التسجيل برجاء الضغط <a style="text-decoration:underline!important;"
+                                                                 href="#">هنا</a></div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="row" style=" padding-bottom:40px;background-color: white;">
-            <div style=" text-align:right; padding-right:20px;font-size: 16px; font-family: ebold;">
-            ملحوظة :
-            يرجى العلم ان السابق هو تسجيل لحضور الايفنت أما اذا كنت تريد الحصول على عضوية مستديمة
-            بالموقع و التسجيل برجاء الضغط <a style="text-decoration:underline!important;"
-            href="#">هنا</a></div>
-            </div>
-            </form>
-            </div>
-            </div>
-
 
 
             <div class="row" id="ronew">
@@ -386,8 +394,8 @@
 
                         </div>
 
-                        <div class="col-lg-10 user_name">
-
+                        <div class="col-lg-10">
+                            <p style="font-family:Calibri;font-size: 23px; margin: 0;" class="user_name"></p>
                             {{--<p style="font-family:Calibri;font-size: 16px;"> 20 mintues</p>--}}
                         </div>
                     </div>
@@ -409,10 +417,10 @@
             {{--<div id="container" class="container-fluid commentbox" style="height:780px;background-color: white; padding: 10px;"></div>--}}
 
             @if(Auth::check())
-                <form class="form-inline comment_form" role="form" style="text-align:right; padding-top: 2%; padding-bottom: 2%;">
+                <form class="form-inline" role="form" style="text-align:right; padding-top: 2%; padding-bottom: 2%;">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="hidden" name="event_id" value="{{$data->id}}">
-                    <input type="hidden" name="user_name" class="user_name" value="{{Auth::user()->english_name}}">
+                    <input type="hidden" name="user_name" class="user_name" value="{{Auth::user()->name}}">
                     <input type="hidden" name="user_image" class="user_pic" value="{{Auth::user()->profile_image}}">
 
                     <div class="form-group" style=" height:50px; width: 100%;">
@@ -436,26 +444,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
-
         $(document).ready(function () {
-            var email;
-            $("#email").change(function(){
-                email = $("#email").val();
-                $('#email2').val(email);
-
-            });
-
             $(".ajax_comment").hide();
-            $(".comment_form").submit(function (event) {
+            $("form").submit(function (event) {
                 event.preventDefault();
+                var comment = $('.comment').val();
+                var user_name = $('.user_name').val();
+                var user_pic = $('.user_pic').val();
 
-                var comment=$('.comment').val();
-                var user_name = $(this).parent().find('input[type="hidden"][name="user_name"]').val();
-                var user_pic = $(this).parent().find('input[type="hidden"][name="user_image"]').val();
-
-   $.ajax( {
-
-
+                $.ajax({
                     url: '/event_comment',
                     type: 'POST',
                     data: new FormData(this),
@@ -463,23 +460,21 @@
                     contentType: false,
                     success: function (data) {
                         $(".ajax_comment").show();
-
-                        var t1 = $('.commentbox').append(comment); // list of comments. its inserting your last comment at the end of line.
-                        var t2 = $('.user_name').append('<p style="font-family:Calibri;font-size: 23px; margin: 0;" >'+user_name+'</p>'); // list of comments. its inserting your last comment at the end of line.
-                        if(user_pic == ''){
+                        var t1 = $('.commentbox').append("</br>" + comment); // list of comments. its inserting your last comment at the end of line.
+                        var t2 = $('.user_name').append("</br>" + user_name); // list of comments. its inserting your last comment at the end of line.
+                        if (user_pic == '') {
                             var t3 = $('.user_pic').append('<img src="/uploadfiles/user_photo/e.png" width="60px">');
-                        }else{
-                          var t3 =  $('.user_pic').append('<img src="/uploadfiles/user_photo/'+user_name+'/'+user_pic+'" width="60px">');
+                        } else {
+                            var t3 = $('.user_pic').append('<img src="/uploadfiles/user_photo/' + user_name + '/' + user_pic + '" width="60px">');
                         }
 //                         $('.user_pic').append("</br>"+user_pic); // list of comments. its inserting your last comment at the end of line.
-                        $('.cont').append(t3,t2,t1);
-
+                        $('.cont').append(t1, t2, t3);
 
                     }
                 });
             });
             $(document).ajaxComplete(function () {
-                $('.comment_form').each(function () {
+                $('form').each(function () {
                     this.reset();
                 });
             });

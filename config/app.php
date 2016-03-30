@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+
 		/*
 		 * Application Service Providers...
 		 */
@@ -145,8 +146,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 //		'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider'
-		'Madcoda\Youtube\YoutubeServiceProviderLaravel5'
-
+		'Madcoda\Youtube\YoutubeServiceProviderLaravel5',
+        'Thujohn\Twitter\TwitterServiceProvider',
 	],
 
 	/*

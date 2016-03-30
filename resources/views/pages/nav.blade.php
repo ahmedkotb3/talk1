@@ -106,7 +106,7 @@
         </li>
 
         <li><a href="/"> الرئيسية </a></li>
-        <li><a href="/Events"> تجمعاتنا </a></li>
+        <li><a href="/tagmoatna"> تجمعاتنا </a></li>
         <li><a href="/OurWorld"> دنيانا </a></li>
         <li><a href="/joinus"> انضمي لنا </a></li>
         <li><a href="/etkalemy"> إتكلمى </a></li>
@@ -168,7 +168,7 @@
             <li><a href="/etkalemy"> إتكلمى </a></li>
             <li><a href="/joinus"> انضمي لنا </a></li>
             <li><a href="/OurWorld"> دنيانا </a></li>
-            <li><a href="/Events"> تجمعاتنا </a></li>
+            <li><a href="/tagmoatna"> تجمعاتنا </a></li>
             <li><a href="/"> الرئيسية </a></li>
         </ul>
 

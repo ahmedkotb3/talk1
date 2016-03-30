@@ -1,10 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Albums;
-use App\Article;
-use App\Article_Comments;
-use App\Article_Likes;
-use App\Article_Seen;
 use App\Event_Speeches;
 use App\Events;
 use App\Events_Comments;
@@ -12,12 +7,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Slider;
-use App\Speech_Comments;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
-use Madcoda\Youtube\Facades\Youtube;
+use Thujohn\Twitter\Facades\Twitter;
 
 class pagescontroller extends Controller
 {
@@ -27,7 +21,8 @@ class pagescontroller extends Controller
 	{
 
 		$sliders = Slider::all();
-		return view('pages/home',array('sliders'=>$sliders));
+//		return view('pages/home',array('sliders'=>$sliders));
+		return view('pages/hend');
 	}
 
 	public function tagmoatna()
@@ -44,8 +39,7 @@ class pagescontroller extends Controller
 			$array = array(
 				'year'=>strtok($event->date, '-'),
 				'name'=>$event->name,
-				'id'=>$event->id,
-					'date'=>$event->date
+				'id'=>$event->id
 			);
 			array_push($eventnames_and_year,$array);
 			if($event->date >=$date){
@@ -58,9 +52,14 @@ class pagescontroller extends Controller
 		return view('pages/tagmoatna',array('years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'future_events'=>$future_events,'last_events'=>$last_events));
 	}
 
-	public function tagmoatnaevent($year)
+	public function joinus()
 	{
-		$id = Events::where('date',"=",$year)->get()->first()->id;
+		return view('pages/joinus');
+	}
+
+	public function tagmoatnaevent($id)
+	{
+
 		$date = date("Y-m-d");
 
 		$events = Events::all();
@@ -78,32 +77,23 @@ class pagescontroller extends Controller
 			$array = array(
 					'year'=>strtok($event->date, '-'),
 					'name'=>$event->name,
-					'id'=>$event->id,
-					'date'=>$event->date
+					'id'=>$event->id
 			);
 			array_push($eventnames_and_year,$array);
 		}
-		$vedioes = Events::find($id)->speeches;
+		 $vedioes = Events::find($id)->speeches;
 		$pictures = Events::find($id)->pictures;
 		$number_of_vedios = count($vedioes);
 		$number_of_pictures = count($pictures);
 
-		$comments =Events_Comments::where('event_id','=',$id)->get();
+		 $comments =Events_Comments::where('event_id','=',$id)->get();
 
 		return view('pages/tagmoatna-event',array('event_data'=>$event_data,'years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'vedioes'=>$vedioes,
 				'number_of_vedios'=>$number_of_vedios,'pictures'=>$pictures,'number_of_pictures'=>$number_of_pictures,'comments'=>$comments));
 	}
 
-
-	public function joinus()
-	{
-		return view('pages/joinus');
-	}
-
-
 	public function tagmoatnavideos($id)
 	{
-		//return $id=Events::where('data','=',$year)->get()->first()->id;
 		$events = Events::all();
 		$years = array();
 		$event_data = array();
@@ -123,37 +113,10 @@ class pagescontroller extends Controller
 		$vedioes = Events::find($id)->speeches;
 		return view('pages/tagmoatna-videos',array('years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'event_data'=>$event_data,'vedioes'=>$vedioes));
 	}
-	/********* here ***********/
 	public function tagmoatnavideoplay($id)
 	{
-
-		$vedio = Event_Speeches::where('id','=',$id)->get()->first();
-		/***** comments from youtube ******/
-		 $vedio_id = substr($vedio->youtube_url,strrpos($vedio->youtube_url,'/')+1) ;
-		$youtube_comments_file = file_get_contents('https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAsaksixbvwTyTdXuYoyooitplftJnDBSs&textFormat=plainText&part=snippet&videoId='.$vedio_id.'&maxResults=50');
-		$result = json_decode($youtube_comments_file, true);
-
-		$comment_number = count($result['items']);
-		$youtube_comments = array();
-
-		for($i=0;$i<$comment_number;$i++){
-			$text = $result['items'][$i]['snippet']['topLevelComment']['snippet']['textDisplay'];
-			$user_name = $result['items'][$i]['snippet']['topLevelComment']['snippet']['authorDisplayName'];
-			$user_image = $result['items'][$i]['snippet']['topLevelComment']['snippet']['authorProfileImageUrl'];
-			$comment = array(
-					'user_name'=>$user_name,
-					'user_iamge'=>$user_image,
-					'text'=>$text,
-			);
-
-			array_push($youtube_comments,$comment);
-
-		}
-		$comments = $vedio->comments;
-
-		/***** comments from youtube ******/
-		    $event_of_vedio = Events::where('id','=',$vedio->event_id)->get()->first();
-
+		 $vedio = Event_Speeches::where('id','=',$id)->get()->first();
+		 $event_of_vedio = Events::where('id','=',$vedio->event_id)->get()->first();
 		$events = Events::all();
 		$years = array();
 		$event_data = array();
@@ -168,7 +131,7 @@ class pagescontroller extends Controller
 			);
 			array_push($eventnames_and_year,$array);
 		}
-		return view('pages/tagmoatna-videoplay',array('years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'event_of_vedio'=>$event_of_vedio,'vedio'=>$vedio,'youtube_comments'=>$youtube_comments,'comments'=>$comments));
+		return view('pages/tagmoatna-videoplay',array('years'=>array_unique($years),'eventnames_and_year'=>$eventnames_and_year,'event_of_vedio'=>$event_of_vedio,'vedio'=>$vedio));
 	}
 	public function tagmoatnapictures($id)
 	{
@@ -200,82 +163,30 @@ class pagescontroller extends Controller
 
 	public function OurWorld()
 	{
-		$world =Article::all();
-
-		$vedios=array();
-		$articles = array();
-		foreach($world as $data){
-			if($data->type == "1"){
-				array_push($vedios,$data);
-			}else{
-				array_push($articles,$data);
-			}
-		}
-
-		 $newest_to_oldest = Article::orderBy('created_at','desc')->get();
-		  $oldest_to_newwst = Article::orderBy('created_at','asc')->get();
-//		if(Auth::check()){
-//			$likes = Article_Likes::where('user_id','=',Auth::user()->id)->get();
-//		}
-
-		 $likes_count = Article_Likes::all();
-		 $seens = Article_Seen::all();
-		return view('pages/OurWorld',array('world'=>$world,'articles'=>$articles,'vedios'=>$vedios,'newest_to_oldest'=>$newest_to_oldest,'oldest_to_newwst'=>$oldest_to_newwst,'likes_count'=>$likes_count,'seens'=>$seens));
+		return view('pages/OurWorld');
 	}
 
-	public function OurWorldArticle($id)
+	public function OurWorldArticle()
 	{
-		$article = Article::find($id);
-		 $comments = $article->comments;
-		  $likes = $article->likes;
-		 $likes_count = count($likes);
-		return view('pages/OurWorld-Article',array('article'=>$article,'comments'=>$comments,'likes'=>$likes,'likes_count'=>$likes_count));
+		return view('pages/OurWorld-Article');
 	}
-	public function OurWorldvideo($id)
+	public function OurWorldvideo()
 	{
-		$vedio = Article::find($id);
-		$likes = $vedio->likes;
-		$likes_count = count($likes);
-		/***** comments from youtube ******/
-		 $vedio_id = substr($vedio->video_url,strrpos($vedio->video_url,'/')+1) ;
-		$youtube_comments_file = file_get_contents('https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAsaksixbvwTyTdXuYoyooitplftJnDBSs&textFormat=plainText&part=snippet&videoId='.$vedio_id.'&maxResults=50');
-		$result = json_decode($youtube_comments_file, true);
-
-		$comment_number = count($result['items']);
-		$youtube_comments = array();
-
-		for($i=0;$i<$comment_number;$i++){
-			$text = $result['items'][$i]['snippet']['topLevelComment']['snippet']['textDisplay'];
-			$user_name = $result['items'][$i]['snippet']['topLevelComment']['snippet']['authorDisplayName'];
-			$user_image = $result['items'][$i]['snippet']['topLevelComment']['snippet']['authorProfileImageUrl'];
-			$comment = array(
-					'user_name'=>$user_name,
-					'user_iamge'=>$user_image,
-					'text'=>$text,
-			);
-
-			array_push($youtube_comments,$comment);
-
-		}
-
-
-		/***** comments from youtube ******/
-		$vedio = Article::find($id);
-		$comments = $vedio->comments;
-		return view('pages/OurWorld-video',array('vedio'=>$vedio,'comments'=>$comments,'youtube_comments'=>$youtube_comments,'likes'=>$likes,'likes_count'=>$likes_count));
+		return view('pages/OurWorld-video');
 	}
 	public function Gallery()
 	{
-		$albums = Albums::all();
-		return view('pages/Gallery',array('albums'=>$albums));
+		return view('pages/Gallery');
 	}
-	public function Galleryevent($id)
+	public function Galleryevent()
 	{
-		$album = Albums::find($id);
-		 $album_name = $album->name;
-		$images_of_album = $album->pictures;
-		return view('pages/Gallery-event',array('images_of_album'=>$images_of_album,'album_name'=>$album_name));
+		return view('pages/Gallery-event');
 	}
+	public function twitter()
+	{
+		 return Twitter::getUserTimeline(['screen_name' => '@etkallemi', 'count' => 20, 'format' => 'json']);
+	}
+
 
 
 	public function etkalemy(){
@@ -304,52 +215,25 @@ class pagescontroller extends Controller
 
 			return view('pages/edit_personal_page');
 
+
+
 	}
 
 	public function event_comment(){
-		if(Auth::check()) {
-			$comment = Input::get('comment');
-			$event_comment = new Events_Comments;
-			$event_comment->text = $comment;
-			$event_comment->event_id = Input::get('event_id');
-			$event_comment->user_id = Auth::user()->id;
 
-			$event_comment->user_name = Auth::user()->english_name;
-			$event_comment->user_image = Auth::user()->profile_image;
-			$event_comment->save();
-		}
+		$comment = Input::get('comment');
+		$event_comment = new Events_Comments;
+		 $event_comment->text=$comment;
+		$event_comment->event_id=Input::get('event_id');
+		 $event_comment->user_id=Auth::user()->id;
 
-
-	}
-	public function vedio_comment(){
-		if(Auth::check()){
-			$comment = Input::get('comment');
-			$vedio_comment = new Speech_Comments;
-			$vedio_comment->text=$comment;
-			$vedio_comment->speech_id=Input::get('vedio_id');
-			$vedio_comment->user_id=Auth::user()->id;
-
-			$vedio_comment->user_name=Auth::user()->english_name;
-			$vedio_comment->user_image=Auth::user()->profile_image;
-			$vedio_comment->save();
-		}
-
+		$event_comment->user_name=Auth::user()->english_name;
+		$event_comment->user_image=Auth::user()->profile_image;
+		$event_comment->save();
 
 
 	}
-	public function article_comment(){
-		if(Auth::check()) {
-			 $comment = Input::get('comment');
-			$article_comment = new Article_Comments;
-			$article_comment->text=$comment;
-			$article_comment->article_id=Input::get('event_id');
-			$article_comment->user_id=Auth::user()->id;
 
-			$article_comment->user_name=Auth::user()->english_name;
-			$article_comment->user_image=Auth::user()->profile_image;
-			$article_comment-> save();
-		}
-	}
 
 
 	public function showadmin()
@@ -365,29 +249,6 @@ class pagescontroller extends Controller
 			return view('admin.login');
 		}
 
-
-	}
-
-
-
-
-	public function test(){
-return view('pages/hend');
-	}
-	public function article_like_save(){
-		$article = new Article_Likes;
-		$article->article_id =Input::get('article_id');
-		$article->user_id = Input::get('user_id');
-		$article->like_status ="1" ;
-		$article->save();
-
-	}
-	public function test_save_seeen(){
-		$article = new Article_Seen();
-		$article->article_id =Input::get('article_id');
-		$article->user_id = Input::get('user_id');
-		$article->seen_status ="1" ;
-		$article->save();
 
 	}
 }

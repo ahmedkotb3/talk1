@@ -1,8 +1,5 @@
 @extends('pages.templet')
 @section('content')
-    <?php
-    //dd(    implode("",explode("-",date('Y-m-d', strtotime("2016-12-12 00:00:00")))));
-    ?>
     <div class="container-fluid" id="row1170">
         <div class="row" id="rtagmo">
             <div  class=" col-xs-6 col-sm-8 col-md-9 col-lg-10 top pull-right" id="tagmo">
@@ -28,7 +25,7 @@
                                 <ul class="dropdown-menu" id="dds">
                                     @foreach($eventnames_and_year as $eventname_and_year)
                                         @if($eventname_and_year['year'] == $year)
-                                    <li><a tabindex="-1"  id="lis" href="/Events/<?php echo implode("",explode("-",date('Y-m-d', strtotime($eventname_and_year['date'])))); ?>">{{$eventname_and_year['name']}}</a></li>
+                                    <li><a tabindex="-1"  id="lis" href="/tagmoatna-event/{{$eventname_and_year['id']}}">{{$eventname_and_year['name']}}</a></li>
                                     <li class="divider" style="width: 100%"></li>
                                         @endif
                                     @endforeach
@@ -54,14 +51,14 @@
                             <div class="item active">
                                 <img src="/uploadfiles/events/{{$future_event->name}}/{{$future_event->image}}" class="img-responsive" alt="...">
                                 <div class="carousel-caption2">
-                                    <a style="color: #fff" href="/Events/<?php echo implode("",explode("-",date('Y-m-d', strtotime($future_event->date)))); ?>"> {{$future_event->description}}</a>
+                                    <a style="color: #fff" href="/tagmoatna-event/{{$future_event->id}}"> {{$future_event->description}}</a>
                                 </div>
                             </div>
                          @else
                             <div class="item">
                                 <img src="/uploadfiles/events/{{$future_event->name}}/{{$future_event->image}}" class="img-responsive" alt="...">
                                 <div class="carousel-caption2">
-                                    <a  style="color: #fff" href="/Events/<?php echo implode("",explode("-",date('Y-m-d', strtotime($future_event->date)))); ?>">{{$future_event->description}}</a>
+                                    <a  style="color: #fff" href="/tagmoatna-event/{{$future_event->id}}">{{$future_event->description}}</a>
                                 </div>
                             </div>
                          @endif
@@ -85,7 +82,7 @@
                     <div class="col-md-6"  id="pic1" style="margin-bottom: 20px">
                         <div class="imgWrap img-responsive">
                             <img  class="imgWrap img-responsive" src="/uploadfiles/events/{{$last_event->name}}/{{$last_event->image}}" alt="polaroid" />
-                            <a href="/Events/<?php echo implode("",explode("-",date('Y-m-d', strtotime($last_event->date)))); ?>"><p class="imgDescription"><span  id ="txtimg">{{$last_event->name}}</span></p></a>
+                            <a href="/tagmoatna-event/{{$last_event->id}}"><p class="imgDescription"><span  id ="txtimg">{{$last_event->name}}</span></p></a>
                         </div>
                     </div>
                 @endforeach

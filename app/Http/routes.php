@@ -25,11 +25,10 @@ Route::controllers([
 
 Route::get('/','pagescontroller@index');
 
-Route::get('/Events','pagescontroller@tagmoatna');
+Route::get('/tagmoatna','pagescontroller@tagmoatna');
 
-Route::get('/Events/{date}','pagescontroller@tagmoatnaevent');
 
-//Route::get('/tagmoatna-event/{id}','pagescontroller@tagmoatnaevent');
+Route::get('/tagmoatna-event/{id}','pagescontroller@tagmoatnaevent');
 
 Route::get('/tagmoatna-pictures/{id}','pagescontroller@tagmoatnapictures');
 
@@ -38,8 +37,6 @@ Route::get('/tagmoatna-videos/{id}','pagescontroller@tagmoatnavideos');
 Route::get('/tagmoatna-videoplay/{id}','pagescontroller@tagmoatnavideoplay');
 
 Route::post('/event_comment','pagescontroller@event_comment');
-Route::post('/vedio_comment','pagescontroller@vedio_comment');
-Route::post('/article_comment','pagescontroller@article_comment');
 
 Route::get('/get_event_comment/{id}','pagescontroller@get_event_comment');
 
@@ -50,10 +47,11 @@ Route::get('/get_event_comment/{id}','pagescontroller@get_event_comment');
 Route::get('/joinus','pagescontroller@joinus');
 
 Route::get('/OurWorld','pagescontroller@OurWorld');
-Route::get('/OurWorld-Article/{id}','pagescontroller@OurWorldArticle');
-Route::get('/OurWorld-video/{id}','pagescontroller@OurWorldvideo');
+Route::get('/OurWorld-Article','pagescontroller@OurWorldArticle');
+Route::get('/OurWorld-video','pagescontroller@OurWorldvideo');
 Route::get('/Gallery','pagescontroller@Gallery');
-Route::get('/Gallery-event/{id}','pagescontroller@Galleryevent');
+Route::get('/Gallery-event','pagescontroller@Galleryevent');
+Route::get('/twitter', 'pagescontroller@twitter');
 
 
 Route::get('/AdminControl','pagescontroller@showadmin');
@@ -147,12 +145,9 @@ Route::get('/lang/{id}','LanguageController@getlang');
 
 
 Route::post('/pay','PaypalController@pay');
+//Route::get('/payment/status','PaypalController@getPaymentStatus');
 
 Route::get('payment/status', array(
     'as' => 'payment.status',
     'uses' => 'PaypalController@getPaymentStatus',
 ));
-
-Route::get('/test','pagescontroller@test');
-Route::post('/article_like_save','pagescontroller@article_like_save');
-Route::post('/test_save_seeen','pagescontroller@test_save_seeen');
